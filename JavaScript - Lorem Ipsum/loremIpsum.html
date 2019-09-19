@@ -1,0 +1,139 @@
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+        <title>Lorem Ipsum</title>
+        <style>
+            body {
+                font-family: 'Raleway', sans-serif;;
+                margin: 0 auto;
+            }
+
+            header {
+                background-color: #8b9dc3;
+                color: white;
+                width: 100%;
+                height: 70px;
+                display: flex;
+                align-items: center;
+            }
+
+            h1, h2{
+                margin: 0 auto;
+                text-align: center;
+                font-size: 1.75em;
+            }
+            
+            h2{
+                margin: 0 auto;
+                text-align: center;
+                font-size: 1.5em;
+            }
+
+            main {
+                width: 75%;
+                margin: auto;
+                display: flex;
+            }
+            
+            #chooseType {
+                height: auto;
+            }
+
+            #chooseType table {
+                margin: 20px auto;
+
+            }
+
+            #chooseType table tr{
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-row-gap: 10px;
+                margin: 0 auto 20px auto;
+            }
+
+            #s {
+                height: 100%;
+                padding:20px 40px auto 40px;
+            }
+            .center {
+                width: 50%;
+            }
+            
+            [type="submit"], [type="number"] {
+                width: 200px;
+            }
+            
+        </style>
+        <script>
+            let word = "Lorem";
+            let line = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+            let paragraph = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At quis risus sed vulputate. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Lorem donec massa sapien faucibus et molestie ac feugiat. In nibh mauris cursus mattis. Mauris in aliquam sem fringilla ut morbi tincidunt. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Diam sit amet nisl suscipit adipiscing bibendum. Sit amet volutpat consequat mauris nunc congue nisi vitae. Eget felis eget nunc lobortis. Mi quis hendrerit dolor magna eget est lorem ipsum. Sed egestas egestas fringilla phasellus faucibus scelerisque. Lacinia quis vel eros donec ac odio tempor orci dapibus."
+
+            function populate() {
+                let e = ''
+                let input = document.getElementById("number").value;
+                if (document.getElementById("words").checked) {
+                    for (let i = 0; i < input; i++) {
+                        e += (word + " ");
+                    }
+                    document.getElementById("s").innerText = e;
+                } else if (document.getElementById("lines").checked) {
+                    for (let i = 0; i < input; i++) {
+                        e += (line + "\n\n");
+                    }
+                    document.getElementById("s").innerText = e;
+                } else if (document.getElementById("paragraph").checked) {
+                    for (let i = 0; i < input; i++) {
+                        e += (paragraph + "\n\n");
+                    }
+                    document.getElementById("s").innerText = e;
+                }
+            }
+
+
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <h1>Lorem Ipsum Generator</h1>
+        </header>
+        <main>
+            <div id="chooseType">
+                <table>
+                    <tr>
+                        <td>
+                            <h2>Generation Type</h2>
+                        </td>
+                    </tr>
+                    <tr class="center">
+                        <td>
+                            <input type="radio" id="words" name="lorem" value="words" onclick="populate()"> Words
+                        </td>
+                        <td>
+                            <input type="radio" id="lines" name="lorem" value="lines" onclick="populate()"> Lines
+                        </td>
+                        <td>
+                            <input type="radio" id="paragraph" name="lorem" value="paragraph" onclick="populate()"> Paragraph
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" id="number" placeholder="Enter no. of type to generate" onkeyup="populate()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" id="submitButton" onclick="populate()" value="Generate">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="s"></div>
+        </main>
+    </body>
+
+    </html>
